@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Transition } from '@headlessui/react'
-// import logo from '../assets/logo.png'
 import kiwitech from '../../assets/kiwitech.png'
+import { Link } from 'react-router-dom'
 
 const NavItems = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,20 +16,24 @@ const NavItems = () => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a href="#" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Home
-                  </a>
+                  <span href="#" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <Link to="/">Home</Link>
+                  </span>
 
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    About Us
-                  </a>
+                  <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <Link to="/about_us">About Us</Link>
+                  </span>
 
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Sign In
-                  </a>
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Sign Up
-                  </a>
+                  <span className="text-gray-300  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <Link to="/login">Sign In</Link>
+                  </span>
+
+                  <button
+                    type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    <Link to="/signup">Sign Up</Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -83,40 +87,25 @@ const NavItems = () => {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#" className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Home
+                  <Link to="/">Home</Link>
                 </a>
 
                 <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                   About Us
                 </a>
 
-                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Sign In
-                </a>
+                <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                  <Link to="/login">Sign In</Link>
+                </span>
 
-                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">
-                  Sign Up
-                </a>
+                <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">
+                  <Link to="/signup">Sign Up</Link>
+                </span>
               </div>
             </div>
           )}
         </Transition>
       </nav>
-
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        </div>
-      </header>
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* <!-- Replace with your content --> */}
-          <div className="px-4 py-6 sm:px-0">
-            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
-          </div>
-          {/* <!-- /End replace --> */}
-        </div>
-      </main>
     </div>
   )
 }
