@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import kiwitech from '../../assets/kiwitech.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const NavItems = () => {
+const PrivateRoutes = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    navigate('/')
+    localStorage.removeItem('authToken')
+  }
+
   return (
     <div>
       <nav className="bg-gray-800">
@@ -16,23 +22,23 @@ const NavItems = () => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <span href="#" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                    <Link to="/">Home</Link>
+                  <span className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <Link to="/">Ranjeet</Link>
                   </span>
 
-                  <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <span className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     <Link to="/about_us">About Us</Link>
                   </span>
-
-                  <span className="text-gray-300  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    <Link to="/login">Sign In</Link>
+                  <span className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={handleLogout}>
+                    <Link to="/test">Test</Link>
                   </span>
 
                   <button
                     type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    onClick={handleLogout}
                   >
-                    <Link to="/signup">Sign Up</Link>
+                    <Link to="/">Log Out</Link>
                   </button>
                 </div>
               </div>
@@ -86,20 +92,17 @@ const NavItems = () => {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
                   <Link to="/">Home</Link>
                 </a>
 
-                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  About Us
-                </a>
+                <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Us</a>
 
-                <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  <Link to="/login">Sign In</Link>
-                </span>
-
-                <span href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">
-                  <Link to="/signup">Sign Up</Link>
+                <span
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  onClick={handleLogout}
+                >
+                  <Link to="/home">Log Out</Link>
                 </span>
               </div>
             </div>
@@ -110,4 +113,4 @@ const NavItems = () => {
   )
 }
 
-export default NavItems
+export default PrivateRoutes

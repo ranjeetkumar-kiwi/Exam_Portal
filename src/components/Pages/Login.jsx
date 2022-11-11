@@ -1,7 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-export default function Login() {
+const Login = () => {
+  const navigate = useNavigate()
+
+  const handleSubmit = () => {
+    console.log('Settign up token')
+    localStorage.setItem('authToken', 'xyza')
+    console.log('Token set successullly')
+    navigate('/')
+  }
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
@@ -29,7 +38,10 @@ export default function Login() {
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+            <button
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              onClick={handleSubmit}
+            >
               Login
             </button>
           </div>
@@ -61,7 +73,7 @@ export default function Login() {
         <p className="mt-8 text-xs font-light text-center text-gray-700">
           {' '}
           Don't have an account?{' '}
-          <span href="#" className="font-medium text-blue-600 hover:underline">
+          <span className="font-medium text-blue-600 hover:underline">
             <Link to="/signup">Sign up</Link>
           </span>
         </p>
@@ -69,3 +81,4 @@ export default function Login() {
     </div>
   )
 }
+export default Login
