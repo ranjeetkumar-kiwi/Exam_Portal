@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
   return (
@@ -7,7 +8,7 @@ const SignUp = () => {
       <div className="w-full bg-grey-lightest" style={{ paddingTop: '4rem' }}>
         <div className="container mx-auto py-8">
           <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
-            <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">Register for a free account</div>
+            <div className=" items-center py-4 px-8 text-black text-xl border-b border-grey-lighter">Register Now</div>
             <div className="py-4 px-8">
               <div className="flex mb-4">
                 <div className="w-1/2 mr-1">
@@ -64,20 +65,20 @@ const SignUp = () => {
             </div>
           </div>
           <p className="text-center my-4">
-            <a href="#" className="text-grey-dark text-sm no-underline hover:text-grey-darker">
+            <Link to={'/login'} className="text-grey-dark text-sm no-underline hover:text-grey-darker">
               I already have an account
-            </a>
+            </Link>
           </p>
         </div>
       </div>
       {/* Footer */}
-      <footer className="w-full bg-grey-lighter py-8">
+      {/* <footer className="w-full bg-grey-lighter py-8">
         <div className="container mx-auto text-center px-8">
           <p className="text-grey-dark mb-2 text-sm">
             This is a product of <span className="font-bold">Your Company</span>
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

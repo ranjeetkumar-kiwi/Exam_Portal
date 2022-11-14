@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const navigate = useNavigate()
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     console.log('Settign up token')
     localStorage.setItem('authToken', 'xyza')
     console.log('Token set successullly')
+    toast.success('Login Succussful')
     navigate('/')
   }
 
@@ -17,7 +19,7 @@ const Login = () => {
         <h1 className="text-3xl font-semibold text-center text-blue-700 uppercase">Sign in</h1>
         <form className="mt-6">
           <div className="mb-2">
-            <label for="email" className="block text-sm font-semibold text-gray-800">
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-800">
               Email
             </label>
             <input
@@ -26,7 +28,7 @@ const Login = () => {
             />
           </div>
           <div className="mb-2">
-            <label for="password" className="block text-sm font-semibold text-gray-800">
+            <label htmlFor="password" className="block text-sm font-semibold text-gray-800">
               Password
             </label>
             <input
@@ -34,9 +36,7 @@ const Login = () => {
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" className="text-xs text-blue-600 hover:underline">
-            Forget Password?
-          </a>
+          <span className="text-xs text-blue-600 hover:underline">Forget Password?</span>
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
