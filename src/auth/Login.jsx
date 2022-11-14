@@ -37,7 +37,7 @@ const Login = () => {
                     touched.email && errors.email ? 'is-invalid' : ''
                   }`}
                 />
-                <ErrorMessage component="div" name="email" className="invalid-feedback" />
+                <ErrorMessage component="div" name="email" className="text-red-600" />
               </div>
               <div className="mb-2">
                 <label htmlFor="password" className="block text-sm font-semibold text-gray-800">
@@ -52,7 +52,7 @@ const Login = () => {
                     touched.password && errors.password ? 'is-invalid' : ''
                   }`}
                 />
-                <ErrorMessage component="div" name="password" className="invalid-feedback" />
+                <ErrorMessage component="div" name="password" className="text-red-600" />
               </div>
               <span className="text-xs text-blue-600 hover:underline hidden">Forget Password?</span>
               <button

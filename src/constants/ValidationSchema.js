@@ -12,8 +12,10 @@ export const customerSignupSchema = Yup.object().shape({
   last_name: Yup.string().trim().required(validationMsg.lastNameRequired),
   email: Yup.string().trim().email(validationMsg.emailPattern).required(validationMsg.email),
   password: Yup.string().trim().required(validationMsg.passwordRequired).matches(validationConst.passwordRegex, validationMsg.passwordPattern),
-  phone: Yup.string().trim().required(validationMsg.mobileNumberRequired).matches(validationConst.numberRegex, validationMsg.numberMatch),
-  about: Yup.string().required(validationMsg.aboutRequired),
-  referal_code: Yup.string(),
-  zip_code: Yup.string().length(5, validationMsg.zip_code).trim().required(validationMsg.zip_code)
+  phone: Yup.string()
+    .trim()
+    .required(validationMsg.mobileNumberRequired)
+    .matches(validationConst.numberRegex, validationMsg.numberMatch)
+    .min(10)
+    .max(10)
 })
