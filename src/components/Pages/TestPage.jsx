@@ -17,7 +17,6 @@ const TestPage = () => {
       }
     }
     handlefullScreen()
-    sessionStorage.setItem('fullscreen', true)
   })
   return (
     <div className="grid grid-flow-col auto-cols-[minmax(0,_2fr)]">

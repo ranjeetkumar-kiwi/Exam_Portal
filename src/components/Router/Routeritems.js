@@ -2,9 +2,10 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import AboutUs from '../Pages/AboutUs'
 import Home from '../Pages/Home'
-import Login from '../Pages/Login'
+import Jobs from '../Pages/Jobs'
+import Login from '../../auth/Login'
 import PageNotFound from '../Pages/PageNotFound'
-import SignUp from '../Pages/SignUp'
+import SignUp from '../../auth/SignUp'
 import Test from '../Pages/Test'
 import TestPage from '../Pages/TestPage'
 import ProtectedRoutes from './ProtectedRoutes'
@@ -15,12 +16,15 @@ const Routeritems = () => {
       <Routes>
         <Route path="/" element={<Home />} exact></Route>
         <Route path="/about_us" element={<AboutUs />}></Route>
-        <Route path="/test" element={<ProtectedRoutes Cmp={Test} />} />
-        <Route path="/test_page" element={<ProtectedRoutes Cmp={TestPage} />} />
-
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/jobs" element={<Jobs />} />
         <Route path="*" element={<PageNotFound />} />
+        //ProtectedRoutes
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/test_page" element={<TestPage />} />
+          <Route path="/test" element={<Test />} />
+        </Route>
       </Routes>
     </div>
   )

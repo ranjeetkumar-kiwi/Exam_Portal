@@ -5,6 +5,7 @@ const Test = () => {
   return (
     <div className="grid grid-flow-col auto-cols-max">
       <div>
+        <h1 className="text-3xl mb-8 ">Your Test Details</h1>
         <Link
           className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
           to="/test_page"
